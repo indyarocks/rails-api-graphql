@@ -21,4 +21,19 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+1. Add `gem 'graphql`
+2. `bundle install`
+3. `rails g graphql:install`
+
+
+* GraphiQL:
+
+Either install GraphiQL Query editor: https://formulae.brew.sh/cask/graphiql
+OR add `gem "graphiql-rails"` in Gemfile and update routes.rb with:
+```ruby
+if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+end
+```
+
+
