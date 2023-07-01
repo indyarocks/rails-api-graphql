@@ -36,4 +36,7 @@ if Rails.env.development?
 end
 ```
 
+* To generate graphql type for a model
+
+`rails g graphql:object author`
 
