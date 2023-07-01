@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-1. Add `gem 'graphql`
+1. Add `gem 'graphql` Documentation [here](https://graphql-ruby.org/getting_started)
 2. `bundle install`
 3. `rails g graphql:install`
 
