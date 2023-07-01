@@ -43,7 +43,8 @@ users_data = []
                     street: Faker::Address.street_address,
                     number: Faker::PhoneNumber.phone_number_with_country_code,
                     city: Faker::Address.city,
-                    postcode: Faker::Address.postcode
+                    postcode: Faker::Address.postcode,
+                    country: Faker::Address.country
                   })
 end
 
