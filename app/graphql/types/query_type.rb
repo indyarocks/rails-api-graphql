@@ -9,9 +9,12 @@ module Types
 
     # TODO: remove me
     field :test_field, String, null: false,
-      description: "Description: An example field added by the generator"
-    def test_field
-      "Hello World!"
+      description: "Description: An example field added by the generator" do
+      argument :name, String, required: true
+    end
+
+    def test_field(name:)
+      "Hello #{name}!"
     end
   end
 end
