@@ -26,5 +26,12 @@ module Types
     def author(id:)
       Author.where(id: id).first
     end
+
+    # Root level field
+    field :authors, [Types::AuthorType], null: false, description: "List of Authors"
+
+    def authors
+      Author.all
+    end
   end
 end
