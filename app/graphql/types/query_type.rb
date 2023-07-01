@@ -14,6 +14,7 @@ module Types
     end
 
     def test_field(name:)
+      Rails.logger.info context[:time]
       "Hello #{name}!"
     end
   end
