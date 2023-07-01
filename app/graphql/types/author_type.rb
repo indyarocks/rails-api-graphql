@@ -14,6 +14,7 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :full_name, String, null: true
     field :full_name_graphql_only, String, null: true
+    field :coordinates, Types::CoordinatesType, null: false
 
     def full_name_graphql_only
       "#{object.first_name}-#{object.last_name}"
