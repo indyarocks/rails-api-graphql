@@ -2,8 +2,11 @@
 
 module Types
   class AuthorType < Types::BaseObject
+
+    description "One Author"
+    
     field :id, ID, null: false
-    field :first_name, String
+    field :first_name, String , description: "Author's first name" #, camelize: true
     field :last_name, String
     field :yob, Integer
     field :is_alive, Boolean
