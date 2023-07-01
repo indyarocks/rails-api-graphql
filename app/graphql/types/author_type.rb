@@ -15,7 +15,7 @@ module Types
     field :full_name, String, null: true
     field :full_name_graphql_only, String, null: true
     field :coordinates, Types::CoordinatesType, null: false
-
+    field :publication_years, [Int], null: false
     def full_name_graphql_only
       "#{object.first_name}-#{object.last_name}"
     end
