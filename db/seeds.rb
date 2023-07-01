@@ -28,3 +28,49 @@ author_data = [
 ]
 
 Author.create(author_data)
+
+Faker::Config.locale = 'en-IND'
+
+USER_COUNT = 5
+POSTS_PER_USER = 5
+COMMENTS_PER_POST = 5
+#### Users
+users_data = []
+1.upto(USER_COUNT).each do |i|
+  users_data.push({
+                    first_name: Faker::Name.first_name,
+                    last_name: Faker::Name.last_name,
+                    street: Faker::Address.street_address,
+                    number: Faker::PhoneNumber.phone_number_with_country_code,
+                    city: Faker::Address.city,
+                    postcode: Faker::Address.postcode
+                  })
+end
+
+users = User.create(users_data)
+
+#### Posts
+posts_data = []
+users.each do |user|
+  1.upto(POSTS_PER_USER) do |_|
+    posts_data.push({
+                      user_id: user.id,
+                      body: Faker::Lorem.paragraph
+                    })
+  end
+end
+
+posts = Post.create(posts_data)
+
+#### Comments data
+comments_data = []
+posts.each do |post|
+  1.upto(COMMENTS_PER_POST) do |_|
+    comments_data.push({
+                         post_id: post.id,
+                         body: Faker::Lorem.paragraph
+                       })
+  end
+end
+
+comments = Comment.create(comments_data)

@@ -33,5 +33,45 @@ module Types
     def authors
       Author.all
     end
+
+    field :user, Types::UserType, null: false, description: "User Object" do
+      argument :id, ID, required: true
+    end
+
+    def user(id:)
+      User.where(id: id).first
+    end
+
+    field :first_post, Types::PostType, null: false, description: "User's Post" do
+      argument :user_id, ID, required: true
+    end
+
+    def first_post(user_id:)
+      Post.where(user_id: user_id).first
+    end
+
+    field :user_posts, [Types::PostType], null: false, description: "User's all posts" do
+      argument :user_id, ID, required: true
+    end
+
+    def user_posts(user_id:)
+      Post.where(user_id: user_id).all
+    end
+
+    field :first_comment, Types::CommentType, null: false, description: "First comment on post" do
+      argument :post_id, ID, required: true
+    end
+
+    def first_comment(post_id:)
+      Comment.where(post_id: post_id).first
+    end
+
+    field :all_comments, [Types::CommentType], null: false, description: "All comments on a post"do
+      argument :post_id, ID, required: true
+    end
+
+    def all_comments(post_id:)
+      Comment.where(post_id: post_id).all
+    end
   end
 end

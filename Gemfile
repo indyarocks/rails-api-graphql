@@ -14,6 +14,7 @@ gem "puma", "~> 5.0"
 
 gem 'graphql'
 gem "graphiql-rails"
+gem 'faker'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
