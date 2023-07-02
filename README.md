@@ -47,3 +47,52 @@ Refer the generators https://github.com/rmosolgo/graphql-ruby/tree/master/lib/ge
 
 `rails g graphql:mutation CreateUser`
 
+On `http://localhost:3000/graphql` - GraphQL Query:
+```javascript
+mutation createUser(
+  $first_name:String, 
+  $last_name:String,
+  $street:String,
+  $number:Int,
+  $city:String,
+  $postcode: String,
+  $country:String
+) {
+  createUser(input: {
+    clientMutationId:"123",
+    firstName:$first_name,
+    lastName:$last_name,
+    street:$street,
+    number:$number,
+    city:$city,
+    postcode: $postcode,
+    country:$country
+  }){
+    id
+    fullName
+    fullAddress
+  }
+}
+
+//GraphQL Variables:
+{
+    "first_name": "Chandan",
+    "last_name": "Jhunjhunwal",
+    "street": "Handewadi",
+    "number": 89238923,
+    "city": "Pune",
+    "postcode": "411028",
+    "country": "India"
+}
+
+//Response:
+{
+    "data": {
+    "createUser": {
+        "id": "9",
+            "fullName": "Chandan Jhunjhunwal",
+            "fullAddress": "Handewadi-Pune-411028-India"
+    }
+}
+}
+```
