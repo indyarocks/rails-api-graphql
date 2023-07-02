@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# Output type
 module Types
   class AuthorType < Types::BaseObject
 
@@ -19,5 +19,19 @@ module Types
     def full_name_graphql_only
       "#{object.first_name}-#{object.last_name}"
     end
+  end
+end
+
+# Input type
+module Types
+  class AuthorInputType < GraphQL::Schema::InputObject
+    graphql_name "AuthorInputType"
+    description "Attributes needed to create author"
+
+    argument :id, ID, required: false
+    argument :first_name, String, required: false
+    argument :last_name, String, required: false
+    argument :yob, Int, required: false
+    argument :is_alive, Boolean, required: false
   end
 end
