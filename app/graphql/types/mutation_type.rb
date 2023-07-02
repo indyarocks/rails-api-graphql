@@ -1,10 +1,15 @@
 module Types
   class MutationType < Types::BaseObject
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
+
+    field :create_author, Types::AuthorType, description: "Create author" do
+      argument :first_name, String, required: true
+      argument :last_name, String, required: true
+      argument :yob, Int
+      argument :is_alive, Boolean
+    end
+
+    def create_author(first_name:, last_name:, yob:, is_alive:)
+      Author.create(first_name: , last_name: , yob: , is_alive: )
     end
   end
 end
