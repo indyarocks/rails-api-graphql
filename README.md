@@ -36,7 +36,14 @@ if Rails.env.development?
 end
 ```
 
+## graphql gem generators:
+Refer the generators https://github.com/rmosolgo/graphql-ruby/tree/master/lib/generators/graphql
 * To generate graphql type for a model
 
 `rails g graphql:object author`
+
+
+* To generate graphql mutation for a model
+
+`rails g graphql:mutation CreateUser`
 
