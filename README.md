@@ -50,8 +50,8 @@ Refer the generators https://github.com/rmosolgo/graphql-ruby/tree/master/lib/ge
 On `http://localhost:3000/graphql` - GraphQL Query:
 ```javascript
 mutation createUser(
-  $first_name:String, 
-  $last_name:String,
+  $first_name:String!, 
+  $last_name:String!,
   $street:String,
   $number:Int,
   $city:String,
@@ -90,6 +90,43 @@ mutation createUser(
     "data": {
     "createUser": {
         "id": "9",
+            "fullName": "Chandan Jhunjhunwal",
+            "fullAddress": "Handewadi-Pune-411028-India"
+    }
+}
+}
+```
+
+Short form:
+
+```javascript
+// Mutation query
+mutation createUser(
+  $user:CreateUserInput!
+) {
+  createUser(input: $user){
+    id
+    fullName
+    fullAddress
+  }
+}
+// Variables
+{ "user": {
+    "firstName": "Chandan",
+        "lastName": "Jhunjhunwal",
+        "street": "Handewadi",
+        "number": 89238923,
+        "city": "Pune",
+        "postcode": "411028",
+        "country": "India"
+}
+
+}
+//Resposne
+{
+    "data": {
+    "createUser": {
+        "id": "12",
             "fullName": "Chandan Jhunjhunwal",
             "fullAddress": "Handewadi-Pune-411028-India"
     }

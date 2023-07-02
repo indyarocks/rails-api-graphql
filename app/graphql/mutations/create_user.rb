@@ -8,8 +8,8 @@ module Mutations
     # field :errors, [String], description: "Validation errors"
 
     # TODO: define arguments
-    argument :first_name, String, required: false
-    argument :last_name, String, required: false
+    argument :first_name, String, required: true
+    argument :last_name, String, required: true
     argument :street, String, required: false
     argument :number, Int, required: false
     argument :city, String, required: false
