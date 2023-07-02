@@ -12,8 +12,8 @@ module Mutations
     argument :is_alive, Boolean, required: false
 
     # TODO: define resolve method
-    def resolve(author:)
-      Author.create(author.to_h)
+    def resolve(first_name:, last_name:, yob:, is_alive:)
+      Author.create(first_name:, last_name:, yob:, is_alive:)
     end
   end
 end
